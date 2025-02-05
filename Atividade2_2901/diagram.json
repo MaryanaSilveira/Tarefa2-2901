@@ -1,0 +1,67 @@
+{
+    "version": 1,
+    "author": "Maryana Silveira",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-pi-pico-w", "id": "pico", "top": -60.85, "left": 41.95, "attrs": {} },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 51.95,
+        "left": -76.8,
+        "attrs": { "value": "330" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": 15.6,
+        "left": -140.2,
+        "attrs": { "color": "limegreen" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r2",
+        "top": 90.35,
+        "left": -76.8,
+        "attrs": { "value": "330" }
+      },
+      { "type": "wokwi-led", "id": "led2", "top": 54, "left": -140.2, "attrs": { "color": "blue" } },
+      {
+        "type": "wokwi-led",
+        "id": "led3",
+        "top": 92.4,
+        "left": -140.2,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r3",
+        "top": 128.75,
+        "left": -76.8,
+        "attrs": { "value": "330" }
+      },
+      {
+        "type": "wokwi-pushbutton-6mm",
+        "id": "btn1",
+        "top": -31,
+        "left": -19.2,
+        "attrs": { "color": "black" }
+      }
+    ],
+    "connections": [
+      [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+      [ "pico:GP11", "r1:2", "green", [ "h-48", "v-28.8" ] ],
+      [ "led1:A", "r1:1", "green", [ "h28.8", "v-28.8" ] ],
+      [ "pico:GND.2", "led1:C", "black", [ "h-201.6", "v67.2" ] ],
+      [ "r2:2", "pico:GP12", "green", [ "h27.6", "v-9.64" ] ],
+      [ "r2:1", "led2:A", "green", [ "v19.2" ] ],
+      [ "pico:GND.2", "led2:C", "black", [ "h-201.6", "v115.2" ] ],
+      [ "pico:GP13", "r3:2", "green", [ "h-48", "v9.64" ] ],
+      [ "r3:1", "led3:A", "green", [ "v0" ] ],
+      [ "pico:GND.2", "led3:C", "black", [ "h-201.6", "v115.2" ] ],
+      [ "pico:GND.1", "btn1:1.r", "black", [ "h0" ] ],
+      [ "pico:GP5", "btn1:2.r", "green", [ "h-28.8", "v-19.6" ] ]
+    ],
+    "dependencies": {}
+  }
